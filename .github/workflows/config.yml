@@ -12,6 +12,6 @@ jobs:
       - run: python3 job.py
       - run: echo "fichier de sortie" > output_file.txt
       - uses: actions/upload-artifact@v4
-         with:
+        with:
           name: mon-artefact
           path: output_file.txt
