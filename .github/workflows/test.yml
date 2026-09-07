@@ -13,5 +13,9 @@ jobs:
         with:
           python-version: '3.11'
 
+        env:
+          SSH_PASSWORD: ${{secrets.SSH_PASSWORD}}
+
       - name: Run tests
         run: python -m unittest test_addition.py
+        run: sshpass -p "$SSH_PASSWORD" scp addition.py ubuntu@20.56.74.49:/home/ubuntu/mt
