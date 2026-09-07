@@ -11,3 +11,7 @@ jobs:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - run: python3 job.py
       - run: echo "fichier de sortie" > output_file.txt
+      - uses: actions/upload-artifact@v4
+         with:
+          name: mon-artefact
+          path: output_file.txt
