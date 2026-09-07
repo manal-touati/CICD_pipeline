@@ -1,4 +1,4 @@
-import OS
+import os
 
 
 a = 2 
@@ -7,4 +7,4 @@ print("coucou", a)
 
 
 secret = os.environ.get("SECRET_API_TOKEN")
-print("Le secret vaut :", secret)
+print("Secret bien récupéré" if secret_token else "Secret introuvable")

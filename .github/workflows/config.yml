@@ -11,6 +11,14 @@ jobs:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Vérifier que le secret est accessible
+        run: |
+          if [ -z "$SECRET_API_TOKEN" ]; then
+            echo "Le secret n'est pas accessible"
+            exit 1
+          else
+            echo "✅ Le secret est bien accessible"
+          fi
       - run: python3 job.py
       - run: echo "fichier de sortie" > output_file.txt
       - uses: actions/upload-artifact@v4
